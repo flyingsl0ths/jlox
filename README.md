@@ -2,6 +2,10 @@
 
 My implementation of Bob Nystrom's Lox language from https://craftinginterpreters.com/
 
+## Running
+
+`./gradlew run --args="<filepath>"` or `./gradlew run` (launches repl)
+
 ## Differences from the original
 
 - Variable declarations via `let` and not `var`
@@ -13,6 +17,8 @@ My implementation of Bob Nystrom's Lox language from https://craftinginterpreter
   - `private`
   - `public`
   - `protected`
+- Instances of classes are forbidden to add additional members during runtime for example:
+  `foo.foo = "Hello World";` unless `foo` is a `public` member of the class
 - Unary `++`, `--`
 - Lambdas (based off Javascript's) `() => print("foo")`
 - `continue` & `break` statements
