@@ -258,6 +258,15 @@ public final class Interpreter implements Stmt.Visitor<Void>, Expr.Visitor<Objec
 		}
 	}
 
+	private void update(final Expr.Variable variable, final Object value) {
+		final var inGlobalScope = mEnvironment == null;
+		if (inGlobalScope) {
+			mGlobals.put(variable.name.lexeme, value);
+		} else {
+			mEnvironment.assignAt(mLocals.get(variable), mSlots.get(variable), value);
+		}
+	}
+
 	@Override
 	public Void visitWhileStmt(Stmt.While stmt) {
 		try {
@@ -677,12 +686,12 @@ public final class Interpreter implements Stmt.Visitor<Void>, Expr.Visitor<Objec
 	}
 
 	private double postfixIncrementVar(final Expr.Variable variable, double right) {
-		mEnvironment.assignAt(mLocals.get(variable), mSlots.get(variable), right + 1);
+		update(variable, right + 1);
 		return right;
 	}
 
 	private double postfixDecrementVar(final Expr.Variable variable, double right) {
-		mEnvironment.assignAt(mLocals.get(variable), mSlots.get(variable), right - 1);
+		update(variable, right - 1);
 		return right;
 	}
 
@@ -703,12 +712,12 @@ public final class Interpreter implements Stmt.Visitor<Void>, Expr.Visitor<Objec
 	}
 
 	private double prefixIncrementVar(final Expr.Variable variable, double right) {
-		mEnvironment.assignAt(mLocals.get(variable), mSlots.get(variable), ++right);
+		update(variable, ++right);
 		return right;
 	}
 
 	private double prefixDecrementVar(final Expr.Variable variable, double right) {
-		mEnvironment.assignAt(mLocals.get(variable), mSlots.get(variable), --right);
+		update(variable, --right);
 		return right;
 	}
 
