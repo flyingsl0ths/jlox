@@ -186,7 +186,7 @@ public final class Parser {
 
     private void parseParameters(
             final ArrayList<Pair<Token, Expr>> parameters) {
-        var delimiter = new TokenType[]{COMMA};
+        var delimiter = new TokenType[] { COMMA };
 
         final Runnable buildParameterList = () -> {
             if (parameters.size() >= MAX_ARGS) {
@@ -483,7 +483,7 @@ public final class Parser {
             }
         };
 
-        return buildBinaryExpr(new TokenType[]{COMMA}, commaExpr);
+        return buildBinaryExpr(new TokenType[] { COMMA }, commaExpr);
     }
 
     private Expr assignment() {
@@ -583,7 +583,7 @@ public final class Parser {
 
         };
 
-        return buildBinaryExpr(new TokenType[]{BANG_EQUAL, EQUAL_EQUAL}, equalityExpr);
+        return buildBinaryExpr(new TokenType[] { BANG_EQUAL, EQUAL_EQUAL }, equalityExpr);
     }
 
     private Expr comparison() {
@@ -605,7 +605,7 @@ public final class Parser {
 
         };
 
-        return buildBinaryExpr(new TokenType[]{GREATER, LESS, GREATER_EQUAL, LESS_EQUAL}, comparisonExpr);
+        return buildBinaryExpr(new TokenType[] { GREATER, LESS, GREATER_EQUAL, LESS_EQUAL }, comparisonExpr);
     }
 
     private Expr concatenation() {
@@ -626,7 +626,7 @@ public final class Parser {
             }
         };
 
-        return buildBinaryExpr(new TokenType[]{PLUS_PLUS}, termExpr);
+        return buildBinaryExpr(new TokenType[] { PLUS_PLUS }, termExpr);
     }
 
     private Expr insertion() {
@@ -647,7 +647,7 @@ public final class Parser {
             }
         };
 
-        return buildBinaryExpr(new TokenType[]{INSERTION}, termExpr);
+        return buildBinaryExpr(new TokenType[] { INSERTION }, termExpr);
     }
 
     private Expr term() {
@@ -668,7 +668,7 @@ public final class Parser {
             }
         };
 
-        return buildBinaryExpr(new TokenType[]{PLUS, MINUS, PLUS_PLUS}, termExpr);
+        return buildBinaryExpr(new TokenType[] { PLUS, MINUS, PLUS_PLUS }, termExpr);
     }
 
     private Expr factor() {
@@ -689,7 +689,7 @@ public final class Parser {
             }
         };
 
-        return buildBinaryExpr(new TokenType[]{SLASH, STAR, MOD, EXPONENT}, termExpr);
+        return buildBinaryExpr(new TokenType[] { SLASH, STAR, MOD, EXPONENT }, termExpr);
 
     }
 
@@ -890,7 +890,7 @@ public final class Parser {
         return (currentToken.type == RIGHT_PAREN
                 && nextToken.type == ARROW)
                 || (currentToken.type == IDENTIFIER
-                && findArrowToken.getAsBoolean());
+                        && findArrowToken.getAsBoolean());
     }
 
     private Expr.Lambda parseSingleParamLambda(final Token param) {
@@ -900,7 +900,7 @@ public final class Parser {
     private Expr.Lambda parseLambda() {
         final var parameters = new ArrayList<Token>();
 
-        final var delimiter = new TokenType[]{COMMA};
+        final var delimiter = new TokenType[] { COMMA };
 
         final Runnable buildParameterList = () -> {
             if (parameters.size() >= MAX_ARGS) {
@@ -1111,7 +1111,7 @@ public final class Parser {
     private Token peekNextNext() {
         final var nextNext = mCurrentToken + 2;
         final var totalTokens = mTokens.size();
-        return (nextNext > totalTokens ? mTokens.get(totalTokens - 1) : mTokens.get(nextNext));
+        return (nextNext >= totalTokens ? mTokens.get(totalTokens - 1) : mTokens.get(nextNext));
     }
 
     private void advanceInputPointer() {
