@@ -1,7 +1,9 @@
 #!/bin/bash
 
+JAR_PATH="$HOME/.local/bin/jlox.jar"
+
 if [ -n "$1" ]; then
-    java -jar app/build/libs/jlox.jar "$1"
+    java -jar "$JAR_PATH" "$1"
 else
-    java -jar app/build/libs/jlox.jar
+    java -jar "$JAR_PATH"
 fi
