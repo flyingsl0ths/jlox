@@ -30,7 +30,7 @@ Place `jlox` and `jlox.jar` in a directory available via `PATH` for example `~/.
   - `public`
   - `protected`
 - Instances of classes are forbidden to add additional members during runtime
-- Unary `++`, `--`
+- Prefix/Postfix `++`, `--`
 - Lambdas (based off Javascript's) `() => print("foo")`
 - `continue` & `break` statements
 - `%` `**` operators
