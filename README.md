@@ -4,7 +4,13 @@ My implementation of Bob Nystrom's Lox language from https://craftinginterpreter
 
 ## Running
 
+### Testing
+
 `./gradlew run --args="<filepath>"` or `./gradlew run` (launches repl)
+
+### Releases
+
+`java -jar <path-to>/jlox.jar <path-to-file>` or `java -jar <path-to>/jlox.jar` (launches repl)
 
 ## Differences from the original
 
@@ -17,8 +23,7 @@ My implementation of Bob Nystrom's Lox language from https://craftinginterpreter
   - `private`
   - `public`
   - `protected`
-- Instances of classes are forbidden to add additional members during runtime for example:
-  `foo.foo = "Hello World";` unless `foo` is a `public` member of the class
+- Instances of classes are forbidden to add additional members during runtime
 - Unary `++`, `--`
 - Lambdas (based off Javascript's) `() => print("foo")`
 - `continue` & `break` statements
