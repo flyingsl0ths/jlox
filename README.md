@@ -18,7 +18,7 @@ Make `jlox` (shell script) executable `chmod +x <path-to>/jlox.jar`
 
 Place `jlox` and `jlox.jar` in a directory available via `PATH` for example `~/.local/bin`
 
-## Differences from the original
+## Addons
 
 - Variable declarations via `let` and not `var`
 - Arrays
