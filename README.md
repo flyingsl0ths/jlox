@@ -12,6 +12,11 @@ My implementation of Bob Nystrom's Lox language from https://craftinginterpreter
 
 `java -jar <path-to>/jlox.jar <path-to-file>` or `java -jar <path-to>/jlox.jar` (launches repl)
 
+### Linux
+
+Make `jlox` (shell script) executable `chmod +x <path-to>/jlox.jar`
+Place `jlox` and `jlox.jar` in a directory available via `PATH` for example `~/.local/bin`
+
 ## Differences from the original
 
 - Variable declarations via `let` and not `var`
