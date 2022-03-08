@@ -15,6 +15,7 @@ My implementation of Bob Nystrom's Lox language from https://craftinginterpreter
 ### Linux
 
 Make `jlox` (shell script) executable `chmod +x <path-to>/jlox.jar`
+
 Place `jlox` and `jlox.jar` in a directory available via `PATH` for example `~/.local/bin`
 
 ## Differences from the original
